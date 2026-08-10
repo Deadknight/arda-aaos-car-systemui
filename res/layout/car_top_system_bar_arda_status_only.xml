@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.android.systemui.car.systembar.ArdaStatusSystemBarView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:systemui="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/car_top_bar"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/status_bar_background"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layoutDirection="ltr">
+
+        <include
+            layout="@layout/qc_status_icons_horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"/>
+
+        <FrameLayout
+            android:id="@+id/clock_container"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:paddingStart="@dimen/car_padding_2"
+            android:paddingEnd="@dimen/car_padding_2">
+            <com.android.systemui.statusbar.policy.Clock
+                android:id="@+id/clock"
+                style="@style/SystemBarClockText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:elevation="5dp"
+                android:singleLine="true"
+                systemui:amPmStyle="gone"/>
+        </FrameLayout>
+
+        <include
+            layout="@layout/read_only_status_icons"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@id/clock_container"/>
+
+        <com.android.systemui.car.systembar.CarSystemBarButton
+            android:id="@+id/notifications"
+            android:contentDescription="@string/system_bar_notifications_label"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_toStartOf="@id/share_to_app_privacy_chip"
+            style="@style/TopBarButton"
+            systemui:highlightWhenSelected="true"
+            systemui:icon="@drawable/car_ic_notification_dock"
+            systemui:longIntent="intent:#Intent;action=com.android.car.bugreport.action.BUG_REPORT;end"
+            systemui:systemBarDisableFlags="notificationIcons"
+            systemui:controller="com.android.systemui.car.notification.NotificationButtonController"/>
+
+        <include
+            layout="@layout/share_to_app_privacy_chip"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:layout_toStartOf="@id/cast_to_other_device_privacy_chip"/>
+
+        <include
+            layout="@layout/cast_to_other_device_privacy_chip"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:layout_toStartOf="@id/camera_privacy_chip"/>
+
+        <include
+            layout="@layout/camera_privacy_chip"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:layout_toStartOf="@id/mic_privacy_chip"/>
+
+        <include
+            layout="@layout/mic_privacy_chip"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:layout_toStartOf="@id/user_name_container"
+            android:contentDescription="@string/system_bar_mic_privacy_chip"/>
+
+        <include
+            layout="@layout/user_name_container"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentEnd="true"/>
+    </RelativeLayout>
+</com.android.systemui.car.systembar.ArdaStatusSystemBarView>

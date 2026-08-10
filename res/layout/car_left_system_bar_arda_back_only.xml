@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.android.systemui.car.systembar.CarSystemBarView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:systemui="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/nav_bar_background"
+    android:orientation="vertical">
+
+    <com.android.systemui.car.systembar.CarSystemBarButton
+        android:id="@+id/arda_back"
+        android:contentDescription="@string/system_bar_back_label"
+        style="@style/SystemBarButton.Vertical"
+        systemui:icon="@drawable/arrow_back"
+        systemui:systemBarDisableFlags="back"
+        systemui:controller="com.android.systemui.car.systembar.BackButtonController"/>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+</com.android.systemui.car.systembar.CarSystemBarView>
